@@ -14,27 +14,16 @@
 </template>
 
 <script>
-import { reactive, ref } from 'vue'
+import { ref } from 'vue'
 import { Swiper, SwiperSlide } from 'swiper/vue'
-import SwiperCore, { Autoplay, Pagination } from 'swiper'
 import 'swiper/swiper.scss'
 import 'swiper/components/pagination/pagination.scss'
-SwiperCore.use([Autoplay, Pagination])
+import useSwiperEffect from './use-swiper'
 export default {
   name: 'HomeSwiper',
   components: { Swiper, SwiperSlide },
   data() {
-    const swiperOption = reactive({
-      autoplay: {
-        delay: 3000,
-        disableOnInteraction: false
-      },
-      loop: true,
-      speed: 1000,
-      pagination: {
-        clickable: true
-      }
-    })
+    const { swiperOption } = useSwiperEffect()
     const swiperList = ref([
       {
         id: '0001',
@@ -43,7 +32,8 @@ export default {
       },
       {
         id: '0002',
-        imgUrl: 'https://dimg04.c-ctrip.com/images/0zg0r120008ot7gnw8CA5.jpg'
+        imgUrl: 'https://imgs.qunarzz.com/vs_ceph_vcimg/79faa5a73731e84a7731db49d5baa91e.jpeg'
+        
       }
     ])
     return {
