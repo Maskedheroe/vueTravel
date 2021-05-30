@@ -1,6 +1,7 @@
 <template>
   <div class="wrapper">
     <Swiper
+      v-if="isShowSwiper"
       :autoplay="swiperOption.autoplay"
       :loop="swiperOption.loop"
       :speed="swiperOption.speed"
@@ -14,31 +15,26 @@
 </template>
 
 <script>
-import { ref } from 'vue'
 import { Swiper, SwiperSlide } from 'swiper/vue'
 import 'swiper/swiper.scss'
 import 'swiper/components/pagination/pagination.scss'
 import useSwiperEffect from './use-swiper'
+import { computed } from 'vue'
 export default {
   name: 'HomeSwiper',
   components: { Swiper, SwiperSlide },
-  data() {
+  data(props) {
     const { swiperOption } = useSwiperEffect()
-    const swiperList = ref([
-      {
-        id: '0001',
-        imgUrl:
-          'http://imgs.qunarzz.com/vs_ceph_vcimg/c0a60fa20379efa4f02ce527a680dc1b.jpeg'
-      },
-      {
-        id: '0002',
-        imgUrl: 'https://imgs.qunarzz.com/vs_ceph_vcimg/79faa5a73731e84a7731db49d5baa91e.jpeg'
-        
-      }
-    ])
+    const isShowSwiper = computed(() => props.swiperList.length)
     return {
-      swiperOption,
-      swiperList
+      isShowSwiper,
+      swiperOption
+    }
+  },
+  props: {
+    swiperList: {
+      type: Array,
+      defalut: []
     }
   }
 }

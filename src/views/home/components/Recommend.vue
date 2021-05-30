@@ -2,14 +2,15 @@
   <div>
     <div class="recommend__title">热销推荐</div>
     <ul>
-      <li class="item border-bottom" v-for="item in recommendList" :key="item.id">
-        <img
-          :src="item.imgUrl"
-          class="item__img"
-        />
+      <li
+        class="item border-bottom"
+        v-for="item in recommendList"
+        :key="item.id"
+      >
+        <img :src="item.imgUrl" class="item__img" />
         <div class="item__info">
-          <p class="item__info__title">{{item.title}}</p>
-          <p class="item__info__desc">{{item.desc}}</p>
+          <p class="item__info__title">{{ item.title }}</p>
+          <p class="item__info__desc">{{ item.desc }}</p>
           <button class="item__info__button">查看详情</button>
         </div>
       </li>
@@ -20,32 +21,9 @@
 <script>
 export default {
   name: 'Recommend',
-  data() {
-    const recommendList = [
-      {
-        id: '0001',
-        imgUrl:
-          'http://tr-osdcp.qunarzz.com/tr-osd-tr-manager/img/09da45332823f014429b94e55fa96c5d.jpg?width=2048&height=1365&top=0&color=#928f52',
-        title: '北京海洋世界',
-        desc: '浪漫海洋世界主题公园'
-      },
-      {
-        id: '0002',
-        imgUrl:
-          'http://tr-osdcp.qunarzz.com/tr-osd-tr-manager/img/09da45332823f014429b94e55fa96c5d.jpg?width=2048&height=1365&top=0&color=#928f52',
-        title: '北京海洋世界',
-        desc: '浪漫海洋世界主题公园'
-      },
-      {
-        id: '003',
-        imgUrl:
-          'http://tr-osdcp.qunarzz.com/tr-osd-tr-manager/img/09da45332823f014429b94e55fa96c5d.jpg?width=2048&height=1365&top=0&color=#928f52',
-        title: '北京海洋世界3',
-        desc: '浪漫海洋世界主题公园'
-      }
-    ]
-    return {
-      recommendList
+  props: {
+    recommendList: {
+      type: Array
     }
   }
 }

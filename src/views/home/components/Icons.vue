@@ -35,56 +35,9 @@ export default {
   },
   data() {
     const { swiperOption } = useSwiperEffect()
-    const iconList = [
-      {
-        id: '0001',
-        imgUrl: 'http://s.qunarzz.com/homenode/images/touchheader/piao.png',
-        desc: '景点门票'
-      },
-      {
-        id: '0002',
-        imgUrl: 'http://s.qunarzz.com/homenode/images/touchheader/piao.png',
-        desc: '景点门票'
-      },
-      {
-        id: '0003',
-        imgUrl: 'http://s.qunarzz.com/homenode/images/touchheader/piao.png',
-        desc: '景点门票'
-      },
-      {
-        id: '0004',
-        imgUrl: 'http://s.qunarzz.com/homenode/images/touchheader/piao.png',
-        desc: '景点门票'
-      },
-      {
-        id: '0005',
-        imgUrl: 'http://s.qunarzz.com/homenode/images/touchheader/piao.png',
-        desc: '景点门票'
-      },
-      {
-        id: '0006',
-        imgUrl: 'http://s.qunarzz.com/homenode/images/touchheader/piao.png',
-        desc: '景点门票'
-      },
-      {
-        id: '0007',
-        imgUrl: 'http://s.qunarzz.com/homenode/images/touchheader/piao.png',
-        desc: '景点门票'
-      },
-      {
-        id: '0008',
-        imgUrl: 'http://s.qunarzz.com/homenode/images/touchheader/piao.png',
-        desc: '景点门票8'
-      },
-      {
-        id: '0009',
-        imgUrl: 'http://s.qunarzz.com/homenode/images/touchheader/piao.png',
-        desc: '景点门票9'
-      }
-    ]
+    
     return {
-      swiperOption,
-      iconList
+      swiperOption
     }
   },
   computed: {
@@ -98,6 +51,12 @@ export default {
         pages[page].push(item)
       })
       return pages
+    }
+  },
+  props: {
+    iconList: {
+      type: Array,
+      defalut: []
     }
   }
 }

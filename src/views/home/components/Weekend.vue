@@ -4,7 +4,7 @@
     <ul>
       <li
         class="item border-bottom"
-        v-for="item in recommendList"
+        v-for="item in weekendList"
         :key="item.id"
       >
         <div class="item__imgwrapper">
@@ -23,32 +23,9 @@
 <script>
 export default {
   name: 'Weekend',
-  data() {
-    const recommendList = [
-      {
-        id: '0001',
-        imgUrl:
-          'http://tr-osdcp.qunarzz.com/tr-osd-tr-manager/img/09da45332823f014429b94e55fa96c5d.jpg?width=640&height=240&top=0&color=#928f52',
-        title: '北京海洋世界',
-        desc: '浪漫海洋世界主题公园'
-      },
-      {
-        id: '0002',
-        imgUrl:
-          'http://tr-osdcp.qunarzz.com/tr-osd-tr-manager/img/09da45332823f014429b94e55fa96c5d.jpg?width=2048&height=1365&top=0&color=#928f52',
-        title: '北京海洋世界',
-        desc: '浪漫海洋世界主题公园'
-      },
-      {
-        id: '003',
-        imgUrl:
-          'http://tr-osdcp.qunarzz.com/tr-osd-tr-manager/img/09da45332823f014429b94e55fa96c5d.jpg?width=640&height=240&top=0&color=#928f52',
-        title: '北京海洋世界3',
-        desc: '浪漫海洋世界主题公园'
-      }
-    ]
-    return {
-      recommendList
+  props: {
+    weekendList: {
+      type: Array
     }
   }
 }
@@ -61,12 +38,11 @@ export default {
   line-height: 0.8rem;
   background: #eee;
   text-indent: 0.2rem;
-  margin-top: 0.2rem;
 }
 .item {
   &__imgwrapper {
     overflow: hidden;
-    padding-bottom: 33.9%;
+    padding-bottom: 37.09%;
     height: 0;
     .item__img {
       width: 100%;
