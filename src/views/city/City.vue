@@ -1,11 +1,12 @@
 <template>
   <CityHeader />
   <CitySearch />
-  <CityList :cities="cities" :hotCities="hotCities"/>
-  <CityAlphabet :cities="cities"/>
+  <CityList :cities="cities" :hotCities="hotCities" :letter="letter"/>
+  <CityAlphabet :cities="cities" @change="handleLetterChange"/>
 </template>
 
 <script>
+import { ref } from 'vue'
 import CityHeader from './components/Header'
 import CitySearch from './components/Search'
 import CityList from './components/CityList'
@@ -20,10 +21,16 @@ export default {
     CityAlphabet
   },
   setup() {
+    const letter = ref('')
     const { cities, hotCities } = useCityServiceEffect()
+    const handleLetterChange = (mletter) => {
+      letter.value = mletter
+    }
     return {
       cities,
-      hotCities
+      hotCities,
+      handleLetterChange,
+      letter
     }
   }
 }

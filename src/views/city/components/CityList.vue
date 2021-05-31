@@ -17,7 +17,7 @@
           </div>
         </div>
       </div>
-      <div class="area" v-for="(item, key) in cities" :key="key">
+      <div class="area-list" v-for="(item, key) in cities" :key="key" :ref="key">
         <div class="title border-topbottom">{{ key }}</div>
         <div class="item-list">
           <div class="item" v-for="innerItem in item" :key="innerItem.id">
@@ -31,7 +31,6 @@
 
 <script>
 import BScroll from 'better-scroll'
-import { onMounted, ref, onUpdated } from 'vue'
 
 export default {
   name: 'CityList',
@@ -41,20 +40,24 @@ export default {
     },
     hotCities: {
       type: Array
+    },
+    letter: {
+      type: String
     }
   },
-  setup() {
-    const listRef = ref(null)
-    const scroll = ref(null)
-    onMounted(() => {
-      scroll.value = new BScroll(listRef.value)
-    })
-    onUpdated(() => {
-      scroll.value.refresh()
-    })
-    return {
-      listRef
+  mounted() {
+    this.scroll = new BScroll(this.$refs.listRef)
+  },
+  watch: {
+    letter() {
+      if (this.letter) {
+        const target = this.$refs[this.letter]
+        this.scroll.scrollToElement(target, 500)
+      }
     }
+  },
+  updated() {
+     this.scroll.refresh()
   }
 }
 </script>
@@ -97,7 +100,7 @@ export default {
       }
     }
   }
-  .area {
+  .area-list {
     .item-list {
       .item {
         line-height: 0.76rem;
