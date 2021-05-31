@@ -1,20 +1,23 @@
 <template>
   <ul class="list">
-    <div class="item">A</div>
-    <div class="item">A</div>
-    <div class="item">A</div>
-    <div class="item">A</div>
-    <div class="item">A</div>
+    <li class="item" v-for="(item, key) in cities" :key="key">{{ key }}</li>
   </ul>
 </template>
 
 <script>
 export default {
-  name: 'CityAlphabet'
+  name: 'CityAlphabet',
+  props: {
+    cities: {
+      type: Object
+    }
+  }
 }
 </script>
 
 <style lang='scss' scoped>
+@import '../../../assets/styles/varible.scss';
+
 .list {
   display: flex;
   flex-direction: column;
@@ -23,11 +26,11 @@ export default {
   top: 1.58rem;
   right: 0;
   bottom: 0;
-  width: .4rem;
+  width: 0.4rem;
   .item {
-    line-height: .4rem;
+    line-height: 0.4rem;
     text-align: center;
-    color: #666;
+    color: $bgColor;
   }
 }
 </style>
