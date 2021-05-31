@@ -7,10 +7,12 @@
       <span class="iconfont">&#xe67d;</span>
       输入城市景点/游玩主题
     </div>
-    <div class="header__right">
-      {{city}}
-      <span class="iconfont arrow_icon">&#xe688;</span>
-    </div>
+    <router-link to="/city">
+      <div class="header__right">
+        {{ city }}
+        <span class="iconfont arrow_icon">&#xe688;</span>
+      </div>
+    </router-link>
   </div>
 </template>
 
@@ -29,7 +31,7 @@ export default {
 @import '~@/assets/styles/varible.scss';
 .header {
   display: flex;
-  line-height: 0.86rem;
+  line-height: $headerHeight;
   background: $bgColor;
   color: #fff;
   &__left {
@@ -37,7 +39,7 @@ export default {
     float: left;
     .back_icon {
       text-align: center;
-      font-size: .4rem;
+      font-size: 0.4rem;
     }
   }
   &__input {
@@ -49,15 +51,16 @@ export default {
     background: #fff;
     border-radius: 0.1rem;
     color: #ccc;
-    padding-left: .2rem;
+    padding-left: 0.2rem;
   }
   &__right {
     float: right;
     width: 1.24rem;
     text-align: center;
+    color: #fff;
     .arrow_icon {
-      margin-left: -.04rem;
-      font-size: .24rem;
+      margin-left: -0.04rem;
+      font-size: 0.24rem;
     }
   }
 }
