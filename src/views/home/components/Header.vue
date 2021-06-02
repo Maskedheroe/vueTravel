@@ -55,9 +55,10 @@ export default {
   }
   &__right {
     float: right;
-    width: 1.24rem;
+    min-width: 1.04rem;
     text-align: center;
     color: #fff;
+    padding: 0 .1rem;
     .arrow_icon {
       margin-left: -0.04rem;
       font-size: 0.24rem;

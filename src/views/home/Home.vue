@@ -11,6 +11,8 @@
 <script>
 // import { onMounted, ref } from 'vue'
 // import axios from 'axios'
+import { computed } from 'vue'
+import { useStore } from 'vuex'
 import Header from './components/Header'
 import HomeSwiper from './components/Swiper'
 import HomeIcons from './components/Icons'
@@ -27,7 +29,9 @@ export default {
     HomeWeekend
   },
   setup() {
-    const { city, swipperList, iconList, recommendList, weekendList } = useServiceEffect()
+    const store = useStore()
+    const city = computed(() => store.state.city)
+    const { swipperList, iconList, recommendList, weekendList } = useServiceEffect()
     return {
       city,
       swipperList,
