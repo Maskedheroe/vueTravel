@@ -69,7 +69,7 @@ export default {
     letter() {
       if (this.letter) {
         const target = this.$refs[this.letter]
-        this.scroll.scrollToElement(target, 500)
+        this.scroll.scrollToElement(target, 200)
       }
     }
   },
