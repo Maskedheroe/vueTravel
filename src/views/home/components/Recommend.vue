@@ -2,18 +2,19 @@
   <div>
     <div class="recommend__title">热销推荐</div>
     <ul>
-      <li
-        class="item border-bottom"
-        v-for="item in recommendList"
-        :key="item.id"
-      >
-        <img :src="item.imgUrl" class="item__img" />
-        <div class="item__info">
-          <p class="item__info__title">{{ item.title }}</p>
-          <p class="item__info__desc">{{ item.desc }}</p>
-          <button class="item__info__button">查看详情</button>
-        </div>
-      </li>
+        <router-link
+          class="item border-bottom"
+          v-for="item in recommendList"
+          :key="item.id"
+          :to="'/detail/' + item.id"
+        >
+          <img :src="item.imgUrl" class="item__img" />
+          <div class="item__info">
+            <p class="item__info__title">{{ item.title }}</p>
+            <p class="item__info__desc">{{ item.desc }}</p>
+            <button class="item__info__button">查看详情</button>
+          </div>
+        </router-link>
     </ul>
   </div>
 </template>
@@ -31,7 +32,7 @@ export default {
 
 <style lang='scss' scoped>
 @import '../../../assets/styles/mixins.scss';
-
+@import '../../../assets/styles/varible.scss';
 .recommend__title {
   line-height: 0.8rem;
   background: #eee;
@@ -42,6 +43,8 @@ export default {
   display: flex;
   overflow: hidden;
   height: 1.9rem;
+  text-decoration: none;
+  color: $darkTextColor;
   &__img {
     width: 1.7rem;
     height: 1.7rem;
