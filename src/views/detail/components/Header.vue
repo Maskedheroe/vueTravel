@@ -67,6 +67,7 @@ export default {
     }
   }
   &__fixed {
+    z-index: 2;
     position: fixed;
     top: 0;
     left: 0;
