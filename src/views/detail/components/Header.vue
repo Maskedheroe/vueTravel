@@ -28,7 +28,7 @@ export default {
   },
   deactivated() {
     window.removeEventListener('scroll')
-  },~
+  },
   methods: {
     handleScroll() {
       const top = document.documentElement.scrollTop
